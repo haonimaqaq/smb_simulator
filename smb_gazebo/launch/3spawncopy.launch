@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<launch>
+    <arg name="r1_x" value="0.0"/>
+    <arg name="r1_y" value="0.0"/>
+    <arg name="r1_z" value="0.35"/>
+    <arg name="r1_yaw" value="0.0"/>
+
+    <arg name="r2_x" value="2.0"/>
+    <arg name="r2_y" value="0.0"/>
+    <arg name="r2_z" value="0.35"/>
+    <arg name="r2_yaw" value="0.0"/>
+
+    <arg name="r3_x" value="4.0"/>
+    <arg name="r3_y" value="0.0"/>
+    <arg name="r3_z" value="0.35"/>
+    <arg name="r3_yaw" value="0.0"/>
+
+	<!-- Gazebo -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="worlds/empty.world"/>
+		<arg name="paused" value="false"/>
+		<arg name="use_sim_time" value="true"/>
+		<arg name="gui" value="false"/>
+		<arg name="headless" value="false"/>
+		<arg name="debug" value="false"/>
+		<arg name="verbose" value="false"/>
+	</include>
+
+	<!-- Spawn SMB -->
+	<include file="$(find smb_gazebo)/launch/spawn_smb1.launch">
+        <arg name="x" value="$(arg r1_x)"/>
+        <arg name="y" value="$(arg r1_y)"/>
+        <arg name="z" value="$(arg r1_z)"/>
+        <arg name="yaw" value="$(arg r1_yaw)"/>
+    </include>
+
+	<include file="$(find smb_gazebo)/launch/spawn_smb2.launch">
+        <arg name="x" value="$(arg r2_x)"/>
+        <arg name="y" value="$(arg r2_y)"/>
+        <arg name="z" value="$(arg r2_z)"/>
+        <arg name="yaw" value="$(arg r2_yaw)"/>
+    </include>
+	<include file="$(find smb_gazebo)/launch/spawn_smb3.launch">
+        <arg name="x" value="$(arg r3_x)"/>
+        <arg name="y" value="$(arg r3_y)"/>
+        <arg name="z" value="$(arg r3_z)"/>
+        <arg name="yaw" value="$(arg r3_yaw)"/>
+    </include>
+
+	<!-- Rviz -->
+	<node type="rviz" name="rviz" pkg="rviz" if="true" args="-d $(find smb_gazebo)/rviz/smb_sim.rviz"/> 
+
+</launch>
