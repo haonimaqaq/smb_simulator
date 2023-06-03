@@ -1,0 +1,35 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/wtio/project/testgraph/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/wtio/project/testgraph/src/misc/eigen_checks/include/**",
+        "/home/wtio/project/testgraph/src/mu_explore/mu_explore/include/**",
+        "/home/wtio/project/testgraph/src/mu_explore/kdtree/include/**",
+        "/home/wtio/project/testgraph/src/robot/lidar_simulator/lidar_gazebo_plugins/include/**",
+        "/home/wtio/project/testgraph/src/misc/minkindr/minkindr/include/**",
+        "/home/wtio/project/testgraph/src/misc/minkindr_ros/minkindr_conversions/include/**",
+        "/home/wtio/project/testgraph/src/misc/numpy_eigen/include/**",
+        "/home/wtio/project/testgraph/src/mapping/volumetric_mapping/octomap_world/include/**",
+        "/home/wtio/project/testgraph/src/mapping/point_merger/include/**",
+        "/home/wtio/project/testgraph/src/mu_explore/task_planner/include/**",
+        "/home/wtio/project/testgraph/src/mapping/volumetric_mapping/volumetric_map_base/include/**",
+        "/home/wtio/project/testgraph/src/mapping/voxblox/voxblox/include/**",
+        "/home/wtio/project/testgraph/src/mapping/voxblox/voxblox_ros/include/**",
+        "/home/wtio/project/testgraph/src/mapping/voxblox/voxblox_rviz_plugin/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
