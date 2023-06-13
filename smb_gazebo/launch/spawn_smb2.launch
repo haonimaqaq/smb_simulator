@@ -50,8 +50,11 @@
     </node>
 
     <!-- Spawn human control nodes -->
-    <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen"/>
-
+    <node pkg="interactive_marker_twist_server" type="marker_server" name="twist_marker_server" output="screen">
+        <remap from="cmd_vel" to="r2/smb_velocity_controller/cmd_vel"/>
+        <param name="link_name" value="/r2_base_link"/>
+        <param name="robot_name" value="r2"/>
+    </node>
     <group if="$(arg joystick)">
       <node name="joy_node" pkg="joy" type="joy_node" output="screen"/>
 
