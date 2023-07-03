@@ -30,13 +30,13 @@
 
     <node name="message_to_tf" pkg="smb_gazebo" type="message_to_tf" output="screen">
       <param name="odometry_topic" value="ground_truth/state"/>
-      <param name="frame_id" value="world"/>
+      <param name="frame_id" value="$(arg robot_namespace)/world"/>
       <param name="footprint_frame_id" value="$(arg robot_namespace)_base_footprint"/>
       <param name="stabilized_frame_id" value="$(arg robot_namespace)_base_stabilized"/>
       <param name="child_frame_id" value="$(arg robot_namespace)_base_link"/>
     </node>
 
-    <node name="odom_to_world_tf" pkg="tf" type="static_transform_publisher" args="$(arg x) $(arg y) $(arg z) 0 0 $(arg yaw) /world $(arg robot_namespace)/odom 100"/>
+    <node name="odom_to_world_tf" pkg="tf" type="static_transform_publisher" args="$(arg x) $(arg y) $(arg z) 0 0 $(arg yaw) $(arg robot_namespace)/world $(arg robot_namespace)/odom 100"/>
 
     <!-- Load controller configuration -->
     <rosparam command="load" file="$(find smb_lowlevel_controller)/config/control_sim.yaml" />
